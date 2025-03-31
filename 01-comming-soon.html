@@ -1,103 +1,165 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>TITLE</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="UTF-8">
-	
-	
-	<!-- Font -->
-	
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">
-	
-	<!-- Stylesheets -->
-	
-	<link href="common-css/bootstrap.css" rel="stylesheet">
-	
-	
-	<link href="common-css/ionicons.css" rel="stylesheet">
-	
-	
-	<link rel="stylesheet" href="common-css/jquery.classycountdown.css" />
-		
-	<link href="01-comming-soon/css/styles.css" rel="stylesheet">
-	
-	<link href="01-comming-soon/css/responsive.css" rel="stylesheet">
-	
+    <title>Launch Countdown | Awesome Project</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+        }
+
+        .countdown-container {
+            display: grid;
+            gap: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .email-input-area {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .social-icons {
+            gap: 1.5rem;
+        }
+
+        .social-icons a {
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .main-area {
+                flex-direction: column;
+            }
+            
+            .countdown-container {
+                padding: 1rem;
+            }
+            
+            .flip-clock-wrapper {
+                scale: 0.7;
+            }
+        }
+    </style>
 </head>
 <body>
-	
-	<div class="main-area">
-		<div class="container full-height position-static">
-			
-			<section class="left-section full-height">
-		
-				<a class="logo" href="#"><img src="images/logo-black.png" alt="Logo"></a>
-				
-				<div class="display-table">
-					<div class="display-table-cell">
-						<div class="main-content">
-							<h1 class="title"><b>Under Construction</b></h1>
-							<p>Our website is currently undergoing scheduled maintenance.
-								We Should be back shortly. Thank you for your patience.</p>
+    <div class="container-fluid min-vh-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-lg-6 d-flex flex-column justify-content-between p-5">
+                <div>
+                    <img src="images/logo-black.png" alt="Logo" class="mb-5" style="max-width: 200px;">
+                    <h1 class="display-4 fw-bold mb-4">Launching Soon!</h1>
+                    <p class="lead mb-4">We're building something amazing! Stay tuned for our grand launch.</p>
+                    
+                    <div class="email-input-area mb-4">
+                        <form id="notifyForm" class="input-group">
+                            <input type="email" class="form-control form-control-lg" 
+                                   placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary btn-lg px-4">
+                                Notify Me <i class="fas fa-bell ms-2"></i>
+                            </button>
+                        </form>
+                        <div id="formMessage" class="mt-2 text-sm"></div>
+                    </div>
 
-							<div class="email-input-area">
-								<form method="post">
-									<input class="email-input" name="email" type="text" placeholder="Enter your email"/>
-									<button class="submit-btn" name="submit" type="submit"><b>NOTIFY US</b></button>
-								</form>
-							</div><!-- email-input-area -->
-							
-							<p class="post-desc">Sign up now to get early notification of our lauch date!</p>
-						</div><!-- main-content -->
-					</div><!-- display-table-cell -->
-				</div><!-- display-table -->
-				
-				<ul class="footer-icons">
-					<li>Stay in touch : </li>
-					<li><a href="#"><i class="ion-social-facebook"></i></a></li>
-					<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-					<li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-					<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-					<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
-				</ul>
-		
-			</section><!-- left-section -->
-		
-			<section class="right-section" style="background-image: url(images/countdown-1-1000x1000.jpg)">
-			
-				<div class="display-table center-text">
-					<div class="display-table-cell">
-						
-						
-						<div id="rounded-countdown">
-							<div class="countdown" data-remaining-sec="2000000"></div>
-						</div>
-						
-					</div><!-- display-table-cell -->
-				</div><!-- display-table -->
-				
-			</section><!-- right-section -->
-		
-		</div><!-- container -->
-	</div><!-- main-area -->
-	
-	<!-- SCIPTS -->
-	
-	<script src="common-js/jquery-3.1.1.min.js"></script>
-	
-	<script src="common-js/tether.min.js"></script>
-	
-	<script src="common-js/bootstrap.js"></script>
-	
-	<script src="common-js/jquery.classycountdown.js"></script>
-	
-	<script src="common-js/jquery.knob.js"></script>
-	
-	<script src="common-js/jquery.throttle.js"></script>
-	
-	<script src="common-js/scripts.js"></script>
-	
+                    <div class="countdown-container mt-4">
+                        <div class="clock"></div>
+                    </div>
+                </div>
+
+                <div class="mt-auto">
+                    <div class="social-icons d-flex justify-content-center">
+                        <a href="#" class="text-dark fs-5"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-dark fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-dark fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-dark fs-5"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="vh-100 bg-cover" 
+                     style="background-image: url('images/launch-image.jpg'); 
+                            background-position: center;
+                            border-radius: 1rem 0 0 1rem;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+
+    <script>
+        // Dynamic Countdown
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 30); // 30 days from now
+
+        const clock = $('.clock').FlipClock({
+            clockFace: 'DailyCounter',
+            autoStart: false,
+            callbacks: {
+                stop: function() {
+                    $('.clock').html('<div class="alert alert-success">We\'re Live!</div>');
+                }
+            }
+        });
+
+        clock.setTime(Math.floor((launchDate - new Date()) / 1000));
+        clock.setCountdown(true);
+        clock.start();
+
+        // Form Handling
+        $('#notifyForm').on('submit', function(e) {
+            e.preventDefault();
+            const email = $(this).find('input').val();
+            $('#formMessage').html(`
+                <div class="alert alert-success alert-dismissible fade show">
+                    Thanks! We'll notify you at ${email}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `);
+            $(this).trigger('reset');
+        });
+
+        // Responsive Adjustments
+        function adjustLayout() {
+            if ($(window).width() < 992) {
+                $('.clock').FlipClock().stop().setScale(0.5);
+            } else {
+                $('.clock').FlipClock().stop().setScale(1);
+            }
+        }
+
+        $(window).on('resize', adjustLayout);
+        adjustLayout();
+    </script>
 </body>
 </html>
