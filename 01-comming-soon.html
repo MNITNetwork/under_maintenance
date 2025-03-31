@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Launch Countdown | Awesome Project</title>
+    <title>Under Maintenance | MNIT NETWORK</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
@@ -72,11 +72,12 @@
         <div class="row w-100">
             <div class="col-lg-6 d-flex flex-column justify-content-between p-5">
                 <div>
-                    <img src="images/logo-black.png" alt="Logo" class="mb-5" style="max-width: 200px;">
-                    <h1 class="display-4 fw-bold mb-4">Launching Soon!</h1>
-                    <p class="lead mb-4">We're building something amazing! Stay tuned for our grand launch.</p>
+                  <!---  <img src="images/logo-black.png" alt="Logo" class="mb-5" style="max-width: 200px;"> -->
+                    <h1>MNIT Network</h1>
+                    <h1 class="display-4 fw-bold mb-4">Under Maintenance!</h1>
+                    <p class="lead mb-4">Our website is currently under maintenance as we prepare for something amazing! Stay tuned for our grand launch. 🚀</p>
                     
-                    <div class="email-input-area mb-4">
+                    <!--- <div class="email-input-area mb-4">
                         <form id="notifyForm" class="input-group">
                             <input type="email" class="form-control form-control-lg" 
                                    placeholder="Enter your email" required>
@@ -85,21 +86,21 @@
                             </button>
                         </form>
                         <div id="formMessage" class="mt-2 text-sm"></div>
-                    </div>
+                    </div> -->
 
                     <div class="countdown-container mt-4">
                         <div class="clock"></div>
                     </div>
                 </div>
 
-                <div class="mt-auto">
+             <!---   <div class="mt-auto">
                     <div class="social-icons d-flex justify-content-center">
                         <a href="#" class="text-dark fs-5"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="text-dark fs-5"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-dark fs-5"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-dark fs-5"><i class="fab fa-linkedin"></i></a>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-lg-6 d-none d-lg-block">
@@ -118,48 +119,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
 
     <script>
-        // Dynamic Countdown
-        const launchDate = new Date();
-        launchDate.setDate(launchDate.getDate() + 30); // 30 days from now
+        // Dynamic Countdown (Updated to 2:00 AM 01/04/2025 UTC+6)
+    const launchDate = new Date('2025-04-01T02:00:00+06:00');
 
-        const clock = $('.clock').FlipClock({
-            clockFace: 'DailyCounter',
-            autoStart: false,
-            callbacks: {
-                stop: function() {
-                    $('.clock').html('<div class="alert alert-success">We\'re Live!</div>');
-                }
-            }
-        });
-
-        clock.setTime(Math.floor((launchDate - new Date()) / 1000));
-        clock.setCountdown(true);
-        clock.start();
-
-        // Form Handling
-        $('#notifyForm').on('submit', function(e) {
-            e.preventDefault();
-            const email = $(this).find('input').val();
-            $('#formMessage').html(`
-                <div class="alert alert-success alert-dismissible fade show">
-                    Thanks! We'll notify you at ${email}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-            `);
-            $(this).trigger('reset');
-        });
-
-        // Responsive Adjustments
-        function adjustLayout() {
-            if ($(window).width() < 992) {
-                $('.clock').FlipClock().stop().setScale(0.5);
-            } else {
-                $('.clock').FlipClock().stop().setScale(1);
+    const clock = $('.clock').FlipClock({
+        clockFace: 'DailyCounter',
+        autoStart: false,
+        callbacks: {
+            stop: function() {
+                $('.clock').html('<div class="alert alert-success">We\'re Live!</div>');
             }
         }
+    });
 
-        $(window).on('resize', adjustLayout);
-        adjustLayout();
+    function updateCountdown() {
+        const now = new Date();
+        const diffSeconds = Math.max(0, Math.floor((launchDate - now) / 1000));
+        clock.setTime(diffSeconds);
+    }
+
+    // Initial setup
+    updateCountdown();
+    clock.setCountdown(true);
+    clock.start();
+
+    // Update every second
+    setInterval(updateCountdown, 1000);
+
+    // Responsive Adjustments
+    function adjustLayout() {
+        $('.clock').FlipClock().stop();
+        const scale = $(window).width() < 768 ? 0.5 : 1;
+        $('.clock').FlipClock().setScale(scale);
+    }
+
+    $(window).on('resize', adjustLayout);
+    adjustLayout();
     </script>
 </body>
 </html>
