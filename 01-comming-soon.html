@@ -88,9 +88,9 @@
                         <div id="formMessage" class="mt-2 text-sm"></div>
                     </div> -->
 
-                    <div class="countdown-container mt-4">
+                  <!---  <div class="countdown-container mt-4">
                         <div class="clock"></div>
-                    </div>
+                    </div> -->
                 </div>
 
              <!---   <div class="mt-auto">
@@ -117,44 +117,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
-
-    <script>
-        // Dynamic Countdown (Updated to 2:00 AM 01/04/2025 UTC+6)
-    const launchDate = new Date('2025-04-01T12:00:00+06:00');
-
-    const clock = $('.clock').FlipClock({
-        clockFace: 'DailyCounter',
-        autoStart: false,
-        callbacks: {
-            stop: function() {
-                $('.clock').html('<div class="alert alert-success">We\'re Live!</div>');
-            }
-        }
-    });
-
-    function updateCountdown() {
-        const now = new Date();
-        const diffSeconds = Math.max(0, Math.floor((launchDate - now) / 1000));
-        clock.setTime(diffSeconds);
-    }
-
-    // Initial setup
-    updateCountdown();
-    clock.setCountdown(true);
-    clock.start();
-
-    // Update every second
-    setInterval(updateCountdown, 1000);
-
-    // Responsive Adjustments
-    function adjustLayout() {
-        $('.clock').FlipClock().stop();
-        const scale = $(window).width() < 768 ? 0.5 : 1;
-        $('.clock').FlipClock().setScale(scale);
-    }
-
-    $(window).on('resize', adjustLayout);
-    adjustLayout();
-    </script>
 </body>
 </html>
